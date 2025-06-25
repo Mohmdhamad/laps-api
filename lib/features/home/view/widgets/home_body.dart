@@ -20,12 +20,15 @@ class HomeBody extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: ListView.separated(
-                    separatorBuilder: (context,index)=>SizedBox(height: 10,),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+                    crossAxisSpacing: 7,
+                      mainAxisSpacing: 7,
+                    ),
                     physics: BouncingScrollPhysics(),
-                    itemCount: cubit.users.length,
+                    itemCount: cubit.laps.length,
                     itemBuilder: (context,index){
-                      return CardBuilder(model: cubit.users[index]);
+                      return CardBuilder(model: cubit.laps[index]);
                     },
                   ),
                 )
