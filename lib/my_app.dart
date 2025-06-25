@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasks/features/home/view/screen/home_screen.dart';
+import 'package:tasks/features/home/view_model/cubit/app_cubit.dart';
+import 'package:tasks/features/splash/view/screen/splash_screen.dart';
 
 class MyApp extends StatelessWidget{
   const MyApp ({super.key});
 
   Widget build(BuildContext context){
-    return MaterialApp(
-      home: HomeScreen(),
-      debugShowCheckedModeBanner: false,
+    return BlocProvider(
+      create: (context)=>AppCubit()..getData(),
+      child: MaterialApp(
+        home: SplashScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 
