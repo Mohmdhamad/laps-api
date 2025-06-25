@@ -5,9 +5,8 @@ import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
 
 class DetailsCard extends StatelessWidget {
-  DetailsCard({super.key, required this.model});
-
-  UserModel model;
+  final UserModel model;
+  const DetailsCard({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -103,10 +102,7 @@ class DetailsCard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: Container(
-                  height: 1,
-                color: AppColors.grey,
-                ),
+                child: Container(height: 1, color: AppColors.grey),
               ),
               Container(
                 padding: EdgeInsetsDirectional.symmetric(
@@ -118,22 +114,7 @@ class DetailsCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: AppColors.white,
                 ),
-                child: Text('address', style: titleStyle(
-                  textSize: 18,
-                )),
-              ),
-              Container(
-                padding: EdgeInsetsDirectional.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                height: 40,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: AppColors.white,
-                ),
-                child: Text('geo location : ${model.address.geolocation.lat}/${model.address.geolocation.long}', style: bodyStyle()),
+                child: Text('address', style: titleStyle(textSize: 18)),
               ),
               Container(
                 padding: EdgeInsetsDirectional.symmetric(
@@ -146,7 +127,10 @@ class DetailsCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: AppColors.white,
                 ),
-                child: Text('location : ${model.address.number} , ${model.address.street} , ${model.address.city}', style: bodyStyle()),
+                child: Text(
+                  'geo location : ${model.address.geolocation.lat}/${model.address.geolocation.long}',
+                  style: bodyStyle(),
+                ),
               ),
               Container(
                 padding: EdgeInsetsDirectional.symmetric(
@@ -159,7 +143,26 @@ class DetailsCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: AppColors.white,
                 ),
-                child: Text('zip code : ${model.address.zipcode}', style: bodyStyle()),
+                child: Text(
+                  'location : ${model.address.number} , ${model.address.street} , ${model.address.city}',
+                  style: bodyStyle(),
+                ),
+              ),
+              Container(
+                padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                height: 40,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: AppColors.white,
+                ),
+                child: Text(
+                  'zip code : ${model.address.zipcode}',
+                  style: bodyStyle(),
+                ),
               ),
             ],
           ),

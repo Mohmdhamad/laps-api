@@ -7,8 +7,8 @@ import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
 
 class CardBuilder extends StatelessWidget {
-   CardBuilder({super.key,required this.model});
-  UserModel model;
+   const CardBuilder({super.key,required this.model});
+ final UserModel model;
   @override
   Widget build(BuildContext context) {
     return InkWell(

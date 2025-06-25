@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tasks/core/style/colors.dart';
-import 'package:tasks/core/style/text_style.dart';
 import 'package:tasks/features/home/view/widgets/card_builder.dart';
 import 'package:tasks/features/home/view_model/cubit/app_cubit.dart';
 import 'package:tasks/features/home/view_model/cubit/app_states.dart';

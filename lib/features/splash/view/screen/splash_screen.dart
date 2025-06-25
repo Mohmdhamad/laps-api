@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tasks/core/functions/navigate.dart';
-import 'package:tasks/core/style/colors.dart';
-import 'package:tasks/core/style/text_style.dart';
 import 'package:tasks/features/home/view/screen/home_screen.dart';
 import 'package:tasks/features/splash/view/widgets/splash_body.dart';
 

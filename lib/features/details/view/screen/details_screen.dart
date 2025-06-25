@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tasks/features/details/view/widget/details_body.dart';
-import 'package:tasks/features/details/view/widget/details_card.dart';
 import 'package:tasks/features/home/model/users_model.dart';
 
 class DetailsScreen extends StatelessWidget {
