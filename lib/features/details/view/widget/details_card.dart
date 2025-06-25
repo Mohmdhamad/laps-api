@@ -12,17 +12,58 @@ class DetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppCubit cubit = AppCubit.get(context);
-    return Card(
-      child: Column(
-        children: [
-          Image(image: NetworkImage(model.image),),
-          ListView.builder(
-              itemCount: model.images.length,
-              itemBuilder: (context,index){
-                return Image(image: NetworkImage(model.images[index]),fit: BoxFit.fill,);
-    }
-    ),
-        ],
+    return Expanded(
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: SizedBox(
+                  height: 120,
+                  child: Image(image: NetworkImage(model.image),)),
+            ),
+            SizedBox(
+              height: 100,
+              child: ListView.builder(
+                  itemCount: model.images.length,
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context,index){
+                    return Image(image: NetworkImage(model.images[index]),fit: BoxFit.fill,);
+                    }
+                    ),
+            ),
+            Row(
+              children: [
+                Text('Device : ',style: titleStyle(textSize: 18),),
+                Text(model.name,style: bodyStyle(),)
+              ],
+            ),
+            Row(
+              children: [
+                Text('Status : ',style: titleStyle(textSize: 18),),
+                Text(model.status,style: bodyStyle(
+                  color: model.status == 'New' ? AppColors.blue : AppColors.red
+                ),)
+              ],
+            ),
+            Row(
+              children: [
+                Text('Price : ',style: titleStyle(textSize: 18),),
+                Text(model.price.toString(),style: bodyStyle(
+                  color: AppColors.green,
+                ),)
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Description : ',style: titleStyle(textSize: 18),),
+                Expanded(child: Text(model.description.toString(),style: bodyStyle(),))
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
